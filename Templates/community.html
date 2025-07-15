@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomate Community</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(120deg, #e8f5e9, #c8e6c9);
+            color: #333;
+            line-height: 1.6;
+            padding: 10px;
+        }
+
+        .header {
+            background: #43a047;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            font-style: italic;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            background: #66bb6a;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background 0.5s, transform 0.2s;
+            
+        }
+
+        .nav a:hover {
+            background: #2e7d32;
+            transform: scale(1.1);
+        }
+
+        .main {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .community-intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .community-intro h2 {
+            font-size: 2.5rem;
+            color: #2e7d32;
+            margin-bottom: 15px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .community-intro p {
+            font-size: 1.2rem;
+        }
+
+        .community-buttons {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom:30px;
+        }
+
+        .community-buttons a {
+            background: #43a047;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            padding: 15px 30px;
+            margin: 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .community-buttons a:hover {
+            background: #2e7d32;
+            transform: scale(1.1);
+        }
+
+        .posts-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .post {
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .post:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .post h3 {
+            font-size: 1.8rem;
+            color: #43a047;
+            margin-bottom: 15px;
+        }
+
+        .post p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        .post .actions {
+            text-align: right;
+        }
+
+        .post .actions a {
+            color: #43a047;
+            text-decoration: none;
+            font-weight: bold;
+            margin-left: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .post .actions a:hover {
+            color: #2e7d32;
+        }
+
+        .footer {
+            background: #43a047;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 30px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Ecomate Community</h1>
+        <p>Connect, Share, and Learn from Your Waste Management Community</p>
+    </header>
+
+    <nav class="nav">
+        <a href="/home">Home</a>
+        <a href="/recycling">Recycling Options</a>
+        <a href="/settings">Settings</a>
+        <a href="/logout">Logout</a>
+    </nav>
+
+    <main class="main">
+        <section class="community-intro">
+            <h2>Welcome to the Ecomate Community!</h2>
+            <p>Join discussions, share tips, and collaborate to make waste management smarter and more sustainable.</p>
+        </section>
+
+        <section class="community-buttons">
+            <a href="/create_community">Create Community</a>
+            <a href="/join_community">Join Community</a>
+        </section>
+
+        <section class="posts-container">
+            <div class="post">
+                <h3>5 Tips for Reducing Plastic Waste</h3>
+                <p>Discover simple and effective ways to cut down on plastic usage in your daily life.</p>
+                <div class="actions">
+                    <a href="/5tips">Read More</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+
+            <div class="post">
+                <h3>DIY Composting at Home</h3>
+                <p>Learn how to turn your kitchen scraps into nutrient-rich compost for your garden.</p>
+                <div class="actions">
+                    <a href="/diy">Read More</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+
+            <div class="post">
+                <h3>Community Recycling Drives</h3>
+                <p>Join our upcoming events and help your neighborhood recycle more effectively.</p>
+                <div class="actions">
+                    <a href="/commu3">Read More</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+
+            <div class="post">
+                <h3>Innovative Ideas for Upcycling</h3>
+                <p>Check out creative ways to reuse materials and reduce waste in your home.</p>
+                <div class="actions">
+                    <a href="/commu4">Read More</a>
+                    <a href="#">Comment</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 Ecomate. All rights reserved. | Your Smart Waste Management System</p>
+    </footer>
+</body>
+
+</html>

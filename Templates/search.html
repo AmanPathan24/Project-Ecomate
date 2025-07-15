@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown input[type="text"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content div {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
+        .dropdown-content div:hover {
+            background-color: #f1f1f1;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<div class="dropdown"> 
+    <form action="/search" method="GET">
+        <input type="text" name="query" id="myInput" placeholder="Search..." value="{{ request.args.get('query', '') }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <div id="myDropdown" class="dropdown-content">
+        {% if suggestions %}
+            {% for suggestion in suggestions %}
+                <div onclick="window.location.href='{{ suggestion.url }}'">{{ suggestion.text }}</div>
+            {% endfor %}
+        {% else %}
+            <div>No results found.</div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+    const suggestions = [
+        { text: "Biodegradable Waste", url: "/biodegradable" },
+        { text: "Biomedical Waste", url: "/biomedical" },
+        { text: "Chemical Waste", url: "/chemical" },
+        { text: "Electronic Waste", url: "/electronicwaste" },
+        { text: "Industrial Waste", url: "/industrialwaste" },
+        { text: "Agriculture Waste", url: "/agriculture" },
+        { text: "Settings", url: "/settings" },
+        { text: "Profile", url: "/profile" },
+        { text: "Tips", url: "/5tips" },
+        { text: "Community", url: "/community" },
+        { text: "Recycling", url: "/recycling" },
+        { text: "Food Waste", url: "/foodwaste" }
+    ];
+
+    function filterFunction() { 
+        const input = document.getElementById("myInput"); 
+        const filter = input.value.toLowerCase(); 
+        const dropdown = document.getElementById("myDropdown");
+        dropdown.innerHTML = '';
+        
+        suggestions.forEach(suggestion => { 
+            if (suggestion.text.toLowerCase().indexOf(filter) > -1) { 
+                const suggestionElement = document.createElement("div");
+                suggestionElement.textContent = suggestion.text; 
+                suggestionElement.onclick = () => { window.location.href = suggestion.url; };
+                dropdown.appendChild(suggestionElement);
+            } 
+        }); 
+
+        if (filter) { 
+            dropdown.classList.add("show"); 
+        } else { 
+            dropdown.classList.remove("show"); 
+        }
+    }
+</script>
+
+</body>
+</html>

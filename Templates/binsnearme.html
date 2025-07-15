@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dustbins Near Me</title>
+    <link rel="stylesheet" href="/static/binsnearme.css">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        .top-right-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        .top-right-buttons button {
+            background-color: #4CAF50; 
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 25px;
+            transition: background-color 0.3s;
+        }
+        .top-right-buttons button:hover {
+            background-color: #45a049; 
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map" style="height: 600px;"></div>
+
+    <div class="top-right-buttons">
+        <button onclick="window.location.href='/home'">Home</button>
+        <button onclick="window.location.href='/settings'">Settings</button>
+        <button onclick="window.location.href='/profile'">Profile</button>
+    </div>
+
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13); 
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        function showUserLocation(lat, lon) {
+            var userLocation = L.marker([lat, lon], {icon: L.icon({
+                iconUrl: '/static/images/mappointe.webp',  
+                iconSize: [25, 25],  
+                iconAnchor: [12, 12],  
+                popupAnchor: [0, -15]  
+            })}).addTo(map);
+
+            userLocation.bindPopup('You are here!').openPopup();
+        }
+
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var userLat = position.coords.latitude;
+                var userLon = position.coords.longitude;
+
+                map.setView([userLat, userLon], 13);
+
+                showUserLocation(userLat, userLon);
+            }, function() {
+                alert("Geolocation failed. Please enable location access.");
+            });
+        } else {
+            alert("Geolocation is not supported by your browser.");
+        }
+
+        fetch('/dustbins')
+            .then(response => response.json())
+            .then(dustbins => {
+                dustbins.forEach(dustbin => {
+                    L.marker([dustbin.latitude, dustbin.longitude])
+                        .bindPopup(`<b>${dustbin.name}</b><br>Latitude: ${dustbin.latitude}<br>Longitude: ${dustbin.longitude}`)
+                        .addTo(map);
+                });
+            })
+            .catch(error => console.error('Error loading dustbins data:', error));
+    </script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flower with Animation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #e3f2fd, #f8bbd0); 
+        }
+
+        .header {
+            text-align: center;
+            background-color: #4CAF50; 
+            color: white;
+            padding: 25px 0;
+            width: 100%;
+            margin-bottom: 30px;
+            border-radius: 10px; 
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .nav a:hover {
+            color: #0056b3;
+            transform: scale(1.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            position: relative;
+            gap: 20px; 
+            margin-bottom: 50px;
+        }
+
+        .petal {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(135deg, #000, #ff7f51, #ce4257);
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8em;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); 
+            background-size: 200% 200%;
+            animation: petalAnimation 3s linear infinite;
+            text-align: center;
+        }
+
+        @keyframes petalAnimation {
+            0% {
+                background-position: 0% 0%;
+            }
+
+            50% {
+                background-position: 100% 100%;
+            }
+
+            100% {
+                background-position: 0% 0%;
+            }
+        }
+
+        .petal:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 25px rgba(0, 0, 0, 0.6); 
+        }
+
+        .one {
+            transform: rotate(180deg);
+        }
+
+        .one span {
+            transform: rotate(180deg);
+        }
+
+        .two {
+            transform: rotate(270deg);
+        }
+
+        .two span {
+            transform: rotate(90deg); 
+        }
+
+        .three {
+            transform: rotate(90deg);
+        }
+
+        .three span {
+            transform: rotate(-90deg);
+        }
+
+        .four {
+            transform: rotate(0deg);
+        }
+
+        .four span {
+            transform: rotate(0deg);
+        }
+
+        .circle {
+            height: 220px;
+            width: 220px;
+            background: radial-gradient(#000, #af28a7);
+            border-radius: 50%;
+            position: absolute;
+            left: calc(50% - 110px);
+            top: calc(50% - 110px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2em;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .circle:hover {
+            transform: scale(1.1);
+        }
+
+        .recycling-options {
+            text-align: center;
+            font-size: 1.6em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>Ecomate</h1>
+    </div>
+
+    <div class="nav">
+        <a href="/home">Home</a>
+        <a href="/settings">Settings</a>
+        <a href="/community">Community</a>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="container">
+        <a href="/recycle_plastic" class="petal one"><span>Plastic</span></a>
+        <a href="/recycle_metal" class="petal two"><span>Metal</span></a>
+        <a href="/recycle_electronics" class="petal three"><span>Electronics</span></a>
+        <a href="/recycle_glass" class="petal four"><span>Glass</span></a>
+
+        <div class="circle">
+            <div class="recycling-options">Recycling Options</div>
+        </div>
+    </div>
+</body>
+
+</html>

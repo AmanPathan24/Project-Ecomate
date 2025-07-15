@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Community</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f1f8e9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .header {
+            background: #43a047;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1.1rem;
+        }
+
+        .form-container button {
+            background: #43a047;
+            color: white;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .form-container button:hover {
+            background: #388e3c;
+        }
+
+        .code {
+            font-size: 1.5rem;
+            color: #388e3c;
+            font-weight: bold;
+        }
+
+        .members-list {
+            margin-top: 20px;
+            padding: 10px;
+            background: #e8f5e9;
+            border-radius: 10px;
+        }
+
+        .members-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .members-list li {
+            margin: 5px 0;
+            font-size: 1.1rem;
+            color: #388e3c;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Create Your Community</h1>
+    </header>
+
+    <div class="form-container">
+        <form id="community-form">
+            <label for="community-name">Community Name</label>
+            <input type="text" id="community-name" placeholder="Enter community name" required>
+
+            <label for="group-link">Group Link (Optional)</label>
+            <input type="url" id="group-link" placeholder="Enter group link (e.g., WhatsApp, Discord)" />
+
+            <button type="submit">Create Community</button>
+        </form>
+
+        <div id="community-code" class="code" style="display: none;">
+            <p>Your Community Code: <span id="generated-code"></span></p>
+        </div>
+
+        <div id="members-list" class="members-list" style="display: none;">
+            <h3>Community Members</h3>
+            <ul id="members">
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        function generateUniqueCode() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let code = '';
+            for (let i = 0; i < 6; i++) {
+                code += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return code;
+        }
+
+        document.getElementById('community-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const communityName = document.getElementById('community-name').value;
+            const groupLink = document.getElementById('group-link').value || "No link provided";
+
+            if (communityName) {
+                const code = generateUniqueCode();
+
+                localStorage.setItem('communityCode', code);
+                localStorage.setItem('communityName', communityName);
+                localStorage.setItem('groupLink', groupLink);
+
+                const members = [localStorage.getItem('username') || 'Admin'];
+                localStorage.setItem('communityMembers', JSON.stringify(members));
+
+                document.getElementById('community-code').style.display = 'block';
+                document.getElementById('generated-code').textContent = code;
+
+                document.getElementById('members-list').style.display = 'block';
+                displayMembers(members);
+            }
+        });
+
+        function displayMembers(members) {
+            const membersList = document.getElementById('members');
+            membersList.innerHTML = '';
+            members.forEach(member => {
+                const li = document.createElement('li');
+                li.textContent = member;
+                membersList.appendChild(li);
+            });
+        }
+    </script>
+</body>
+
+</html>

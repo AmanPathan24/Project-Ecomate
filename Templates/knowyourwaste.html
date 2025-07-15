@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type of Waste</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #1e1e1e;
+            color: white;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #121212;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6ac258;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #6ac258;
+        }
+
+        .hero {
+            text-align: center;
+            margin: 80px 0;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 30px;
+            color: #6ac258;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .circular-pattern {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            height: 400px;
+            border: 2px solid rgba(106, 194, 88, 0.5);
+            border-radius: 50%;
+            z-index: 1;
+            animation: rotatePattern 10s linear infinite;
+        }
+
+        .hero .circular-pattern::before,
+        .hero .circular-pattern::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 2px solid rgba(106, 194, 88, 0.3);
+            border-radius: 50%;
+            top: 20px;
+            left: 20px;
+            transform: scale(0.8);
+        }
+
+        .hero .circular-pattern::after {
+            border: 2px solid rgba(106, 194, 88, 0.2);
+            top: -40px;
+            left: -40px;
+            transform: scale(1.2);
+        }
+
+        @keyframes rotatePattern {
+            from {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            to {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .content {
+            margin: 50px auto;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+        }
+
+        .step {
+            background: #121212;
+            border: 2px solid #6ac258;
+            border-radius: 8px;
+            padding: 30px;
+            width: 320px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        .step h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .step p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .step i {
+            font-size: 50px;
+            color: #6ac258;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .step i:hover {
+            color: #9a573e;
+        }
+
+        .step a {
+            text-decoration: none;
+            color: lightblue;
+        }
+
+        .step a:hover {
+            color: rgb(220, 220, 12);
+        }
+
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            padding: 20px;
+            background: #121212;
+        }
+
+        footer p {
+            font-size: 14px;
+            color: #aaaaaa;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Ecomate</div>
+        <nav>
+            <div class="nav-links">
+                <a href="/home">Home</a>
+                <a href="/settings">Settings</a>
+                <a href="/community">Community</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="circular-pattern"></div>
+        <h1>Types of Waste</h1>
+    </section>
+
+    <section class="content">
+        <div class="step">
+            <h2>01. BIODEGRADABLE WASTE</h2>
+            <p>Biodegradable waste consists of organic matter that can be decomposed by microorganisms and other living organisms through processes like composting and digestion.</p>
+            <a href="/biodegradable">
+                <i class="fas fa-leaf"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>02. BIOMEDICAL WASTE</h2>
+            <p>Biomedical waste includes any infectious or potentially infectious materials from the treatment of humans or animals and research involving biologics.</p>
+            <a href="/biomedical">
+                <i class="fas fa-first-aid"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>03. CHEMICAL WASTE</h2>
+            <p>Chemical waste encompasses excess, unused, or unwanted chemicals.</p>
+            <a href="/chemical">
+                <i class="fas fa-flask"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>04. ELECTRONIC WASTE</h2>
+            <p>Electronic waste (e-waste) refers to discarded electrical or electronic devices, also known as waste electrical and electronic equipment (WEEE) or end-of-life (EOL) electronics.</p>
+            <a href="/electronicwaste">
+                <i class="fas fa-plug"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>05. INDUSTRIAL WASTE</h2>
+            <p>Industrial waste is the waste produced by industrial activity which includes any material that is rendered useless during a manufacturing process such as that of factories, mills, and mining operations.</p>
+            <a href="/industrialwaste">
+                <i class="fas fa-industry"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>06. AGRICULTURAL WASTE</h2>
+            <p>Agricultural waste are plant residues from agriculture. These waste streams originate from arable land and horticulture.</p>
+            <a href="/Agriculture">
+                <i class="fas fa-seedling"></i> Know more
+            </a>
+        </div>
+
+        <div class="step">
+            <h2>07. FOOD WASTE</h2>
+            <p>Food loss and waste refers to food that is not consumed. It occurs throughout the food system from production to consumption.</p>
+            <a href="/foodwaste">
+                <i class="fas fa-utensils"></i> Know more
+            </a>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Ecomate. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomate: Your Smart Waste Management System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/index.css">
+    <style>
+        .suggestions-container {
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28%;
+            background-color: rgb(186, 226, 232);
+        }
+    
+        .suggestion {
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+    
+        .suggestion:hover {
+            background-color: #f0f0f0;
+        }
+    
+        .suggestion a {
+            text-decoration: none;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <img src="/static/images/ecomatelogo.png" alt="Ecomate Logo" class="logo">
+            </div>
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search..."
+                    oninput="handleSearch(this.value)"
+                />
+                <button onclick="performSearch()">Search</button>
+                <div id="search-suggestions" class="suggestions-container"></div>
+            </div>
+            <div class="icons">
+                <a href="/profile"><img src="/static/images/profile.png" alt="Profile" class="icon"></a>
+                <a href="/settings"><img src="/static/images/settings.png" alt="Settings" class="icon"></a>
+            </div>
+        </div>
+    </header>
+    
+    <script>
+        const suggestions = [
+            { text: "Biodegradable Waste", url: "/biodegradable" },
+            { text: "Biomedical Waste", url: "/biomedical" },
+            { text: "Chemical Waste", url: "/chemical" },
+            { text: "Electronic Waste", url: "/electronicwaste" },
+            { text: "Industrial Waste", url: "/industrialwaste" },
+            { text: "Agriculture Waste", url: "/agriculture" },
+            { text: "Settings", url: "/settings" },
+            { text: "Profile", url: "/profile" },
+            { text: "Tips", url: "/5tips" },
+            { text: "Community", url: "/community" },
+            { text: "Recycling", url: "/recycling" },
+            { text: "Food Waste", url: "/foodwaste" },
+            { text: "Recycling Techniques", url: "/recycle" },
+            { text: "Food Waste", url: "/foodwaste" },
+            { text : "Bins near me " , url: "/binsnearme"},
+            {text : "Plastic Recycling" , url:"/recycle_plastic"},
+            {text : "Metal Recycling" , url:"/recycle_metal"},
+            {text : "Glass Recycling" , url:"/recycle_glass"},
+            {text : "Electronics Recycling" , url:"/recycle_electronics"},
+
+        ];
+    
+        function handleSearch(query) {
+            const suggestionsContainer = document.getElementById("search-suggestions");
+            suggestionsContainer.innerHTML = ""; 
+    
+            if (query.trim() === "") {
+                return; 
+            }
+    
+            const filteredSuggestions = suggestions.filter((s) =>
+                s.text.toLowerCase().includes(query.toLowerCase())
+            );
+    
+            filteredSuggestions.forEach((suggestion) => {
+                const suggestionElement = document.createElement("div");
+                suggestionElement.className = "suggestion";
+                suggestionElement.innerHTML = `<a href="${suggestion.url}">${suggestion.text}</a>`;
+                suggestionsContainer.appendChild(suggestionElement);
+            });
+        }
+    
+        function performSearch() {
+            const query = document.getElementById("search-input").value;
+            if (query.trim() === "") {
+                alert("Please enter a search query!");
+                return;
+            }
+    
+            window.location.href = `/search?query=${query}`;
+        }
+    </script>
+    
+    <section class="slideshow">
+        <div class="slides">
+            <div class="slide" id="slide1">
+                <div class="description-box">
+                    <h2>Smart Waste Management</h2>
+                    <p>Innovative solutions for a sustainable environment.</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+            </div>
+            <div class="slide" id="slide2">
+                <div class="description-box">
+                    <h2>Reduce, Reuse, Recycle</h2>
+                    <p>Make a positive impact on our planet today.</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+            </div>
+            <div class="slide" id="slide3">
+                <div class="description-box">
+                    <h2>Cleaner Communities</h2>
+                    <p>Join hands to build a cleaner, greener world.</p>
+                    <button class="learn-more-btn">Learn More</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomate: Your Smart Waste Management System</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <div class="navbar">
+        <div class="steps">
+            <a href="#section1" class="step" onclick="activateStep(1)">
+                <div class="circle" id="circle1">1</div>
+                <span>What is Ecomate?</span>
+            </a>
+            <a href="#section2" class="step" onclick="activateStep(2)">
+                <div class="circle" id="circle2">2</div>
+                <span>Bins Near Me</span>
+            </a>
+            <a href="#section3" class="step" onclick="activateStep(3)">
+                <div class="circle" id="circle3">3</div>
+                <span>Know Your Waste</span>
+            </a>
+            <a href="#section4" class="step" onclick="activateStep(4)">
+                <div class="circle" id="circle4">4</div>
+                <span>Recycling Technique</span>
+            </a>
+            <a href="#section5" class="step" onclick="activateStep(5)">
+                <div class="circle" id="circle5">5</div>
+                <span>Communities</span>
+            </a>
+        </div>
+        <div class="line"></div>
+    </div>
+
+    <section id="section1" class="section">
+        <div class="content">
+            <h1>What is Ecomate?</h1>
+            <p>
+                Ecomate is an advanced smart waste management system designed to revolutionize how waste is handled by simplifying disposal, recycling, and tracking processes. It empowers individuals and communities to embrace sustainable practices through its focus on reducing, reusing, and recycling. Ecomate educates users on effective waste segregation, guides them through eco-friendly recycling techniques, and enables real-time monitoring of waste disposal. By leveraging modern technology like AI and IoT, it offers features such as smart bin location tracking and automated waste categorization. Additionally, Ecomate fosters community engagement by connecting environmentally conscious individuals to collaborate on eco-friendly initiatives. This comprehensive system aims to create cleaner living spaces, reduce environmental harm, and promote a sustainable, greener future for all.
+            </p>
+        </div>
+        <div class="image">
+            <img src="/static/images/WHAT_IS_ECOMATE.webp" alt="What is Ecomate">
+        </div>
+    </section>
+
+    <section id="section2" class="section">
+        <div class="content">
+            <h1>Bins Near Me</h1>
+            <p>
+                The "Bins Near Me" feature in Ecomate helps you locate the nearest waste disposal bins and recycling centers in your area. 
+                Save time, reduce litter, and contribute to a cleaner environment.
+            </p>
+            <a href = '/binsnearme'><button class="learn-more">Know More</button></a>
+        </div>
+        <div class="image">
+            <img src="/static/images/BINS_NEAR_ME.jpeg" alt="Bins Near Me">
+        </div>
+    </section>
+
+    <section id="section3" class="section">
+        <div class="content">
+            <h1>Know Your Waste</h1>
+            <p>
+                The "Know Your Waste" feature helps you identify and categorize waste accurately. Make informed decisions to reduce contamination 
+                and maximize recycling efforts.
+            </p>
+            <a href = '/knowyourwaste'><button class="learn-more">Know More</button></a>
+        </div>
+        <div class="image">
+            <img src="/static/images/Know_Your_Waste.jpeg" alt="Know Your Waste">
+        </div>
+    </section>
+
+    <section id="section4" class="section">
+        <div class="content">
+            <h1>Recycling Technique</h1>
+            <p>
+                Learn effective recycling methods with the "Recycling Technique" feature. Step-by-step guidance makes recycling simple and impactful.
+            </p>
+            <a href ='/recycling'><button class="learn-more">Know More</button></a>
+        </div>
+        <div class="image">
+            <img src="/static/images/Recycling_Technique.jpeg" alt="Recycling Technique">
+        </div>
+    </section>
+
+    <section id="section5" class="section">
+        <div class="content">
+            <h1>Communities</h1>
+            <p>
+                Connect with like-minded individuals and participate in eco-friendly initiatives through the "Communities" feature. Together, we can 
+                build a greener future.
+            </p>
+            <a href = '/community' ><button class="learn-more">Know More</button></a>
+        </div>
+        <div class="image">
+            <img src="/static/images/COMMMUNITY.jpeg" alt="Communities">
+        </div>
+    </section>
+
+=    <footer>
+        <div class="footer-container">
+            <a href ='/Feedback'><button class="feedback-btn">Feedback</button></a>
+            <div class="footer-links">
+                <a href="#">Contact Us</a>
+                <a href="#">Know More About Us</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        window.addEventListener("scroll", () => {
+            const sections = document.querySelectorAll(".section");
+            const navCircles = document.querySelectorAll(".circle");
+
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom > window.innerHeight / 2) {
+                    navCircles.forEach(circle => {
+                        circle.style.backgroundColor = "#fff";
+                        circle.style.color = "#0073e6";
+                    });
+                    navCircles[index].style.backgroundColor = "#0073e6";
+                    navCircles[index].style.color = "#fff";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

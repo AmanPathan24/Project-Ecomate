@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomate - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #A0E8AF; 
+            background-image: url('/static/images/leaves.jpg'); 
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: white; 
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            animation: fadeIn 1s ease-in-out; 
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container:hover {
+            transform: scale(1.05);
+        }
+
+        .logo {
+            width: 100px; 
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            animation: slideIn 0.5s ease-in-out; 
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        p {
+            color: #34495e;
+            margin-bottom: 20px;
+            animation: slideIn 0.5s ease-in-out 0.2s forwards; 
+        }
+
+        .btn {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            animation: fadeIn 0.5s ease-in-out 0.4s forwards; 
+        }
+
+        .btn:hover {
+            background-color: #219653;
+            transform: translateY(-3px); 
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <img src="/static/images/ecomatelogo (2).jpeg" alt="Ecomate Logo" class="logo"> 
+        <h1>Welcome to Ecomate!</h1>
+        <p>Your smart waste management system designed to help you reduce, reuse, and recycle effectively.</p>
+        <a href="/signup" class="btn">Get Started</a>
+    </div>
+</body>
+
+</html>

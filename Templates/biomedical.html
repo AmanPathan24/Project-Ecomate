@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biomedical Waste: Proper Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(120deg, #0b3d0b, #164e16);
+            color: #e6ffee; 
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        header {
+            background: linear-gradient(90deg, #143914, #1f7a1f);
+            padding: 50px 20px;
+            text-align: center;
+            color: white;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            animation: fadeIn 2s;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        header p {
+            font-size: 20px;
+            animation: fadeIn 3s;
+        }
+
+        .section {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.05); 
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .section img {
+            flex: 1;
+            width: 100px;
+            height: 250px;
+            background-size: contain
+           
+        }
+
+        .section-content {
+            flex: 2;
+            animation: fadeIn 2s;
+        }
+
+        .section h2 {
+            font-size: 32px;
+            color: #8ef27c;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .section p, .section ul {
+            font-size: 18px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .section ul {
+            margin-left: 30px;
+            list-style-type: square;
+        }
+
+        .section ul li {
+            margin-bottom: 10px;
+        }
+
+        .fun-fact {
+            background: linear-gradient(135deg, #2b7f2b, #4ade80);
+            padding: 40px;
+            margin: 50px 20px;
+            color: white;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            animation: zoomIn 1.5s;
+        }
+
+        .fun-fact h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #e6ffee;
+        }
+
+        .fun-fact img {
+            flex: 1;
+            width: 100px;
+            height: 150px;
+            background-size: contain}
+
+        .cta {
+            text-align: center;
+            background: linear-gradient(45deg, #14532d, #28a745);
+            padding: 40px 20px;
+            margin-top: 40px;
+            color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            animation: popUp 2s;
+        }
+
+        .cta p {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .cta a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            padding: 12px 30px;
+            background: #2f8b2f;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta a:hover {
+            background: #276627; 
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #143914;
+            color: #e6ffee;
+            font-size: 14px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            .section {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .cta a {
+                display: inline-block;
+                margin: 10px 0;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0.9); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Biomedical Waste</h1>
+    <p>Proper Management for a Safer Environment</p>
+</header>
+
+<div class="section">
+    <div class="section-content">
+        <h2>What is Biomedical Waste?</h2>
+        <p>Biomedical waste refers to waste generated during the diagnosis, treatment, or immunization of humans or animals. It includes infectious, hazardous, and non-hazardous materials requiring special handling and disposal.</p>
+    </div>
+    <img src="/static/images/medical.png" alt="Biomedical Waste">
+</div>
+
+<div class="section">
+    <img src="/static/images/biomedicalexample.webp" alt="Examples of Biomedical Waste">
+    <div class="section-content">
+        <h2>Examples of Biomedical Waste</h2>
+        <ul>
+            <li>Infectious waste (used surgical dressings).</li>
+            <li>Pathological waste (human/animal tissues).</li>
+            <li>Sharps (needles, syringes, scalpels).</li>
+            <li>Pharmaceutical waste (expired medicines).</li>
+            <li>Chemical waste (disinfectants, reagents).</li>
+        </ul>
+    </div>
+</div>
+
+<div class="fun-fact">
+    <img src="/static/images/fun-fact.png" alt="Benefits of Composting">
+    <p>Hospitals worldwide generate over 2 million tons of biomedical waste daily, making proper waste management essential for safety and health!</p>
+</div>
+
+<div class="cta">
+    <p>Join Us in Safe Waste Disposal Practices!</p>
+    <a href="#">Get Started</a>
+</div>
+
+<footer>
+    <p>&copy; 2024 EcoManage. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
